@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Wonderson | Portfolio & Personal Website</title>
+    <meta name="description"
+        content="Website portofolio profesional Brain Wonderson - Full-Stack Developer & UI/UX Designer. Menampilkan proyek terbaru, keahlian, dan cara menghubungi saya.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Custom Cursor Glow Effect -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-accent">&lt;</span>Brain Wonderson<span class="logo-accent">/&gt;</span>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active">Beranda</a>
+                <a href="#about" class="nav-link">Tentang</a>
+                <a href="#projects" class="nav-link">Proyek</a>
+                <a href="#contact" class="nav-link">Kontak</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button id="themeToggle" class="theme-btn" aria-label="Toggle Theme">
+                    <i data-lucide="sun" class="sun-icon"></i>
+                    <i data-lucide="moon" class="moon-icon"></i>
+                </button>
+                <button id="menuToggle" class="menu-btn" aria-label="Toggle Menu">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="badge-container">
+                        <span class="status-badge">
+                            <span class="status-dot"></span> Tersedia untuk Proyek Baru
+                        </span>
+                    </div>
+                    <h1 class="hero-title">
+                        Halo, Saya <span class="gradient-text">Brain Wonderson</span>
+                    </h1>
+                    <h2 class="hero-subtitle">
+                        Saya seorang <span id="typewriter" class="typewriter-text"></span><span class="cursor">|</span>
+                    </h2>
+                    <p class="hero-description">
+                        Mengubah ide kompleks menjadi produk digital yang indah, interaktif, dan berkinerja tinggi.
+                        Berfokus pada pengembangan Full-Stack modern dan desain UI/UX yang intuitif.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn btn-primary">
+                            Hubungi Saya <i data-lucide="arrow-right"></i>
+                        </a>
+                        <a href="#projects" class="btn btn-outline">
+                            Lihat Proyek
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="visual-card">
+                        <div class="visual-gradient-glow"></div>
+                        <img src="assets/portfolio_avatar.png" alt="Ahmad Fauzi Avatar" class="avatar-img"
+                            id="avatarImage">
+                        <!-- Tech badges floating -->
+                        <div class="floating-tech tech-html" title="HTML5">
+                            <i data-lucide="code-2"></i>
+                        </div>
+                        <div class="floating-tech tech-js" title="JavaScript">
+                            <i data-lucide="braces"></i>
+                        </div>
+                        <div class="floating-tech tech-react" title="Database">
+                            <i data-lucide="database"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scroll-indicator">
+                <a href="#about" aria-label="Scroll Down">
+                    <i data-lucide="chevron-down" class="bounce"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- About & Skills Section -->
+        <section id="about" class="about-section section-padding">
+            <div class="section-container">
+                <div class="section-header reveal">
+                    <span class="section-tag">Tentang Saya</span>
+                    <h2 class="section-title">Mari Mengenal Lebih Dekat</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-info reveal">
+                        <h3 class="about-subtitle">Siapa saya?</h3>
+                        <p class="about-text">
+                            Saya adalah seorang Fullstack Developer yang berfokus pada pengembangan aplikasi web dan
+                            integrasi Artificial Intelegence. Saya senang membangun sistem end-to-end mulai dari
+                            perancangan database, backend API, frontend modern, hingga implementasi AI.
+                        </p>
+                        <p class="about-text">
+                            Saya percaya bahwa software yang baik tidak hanya memiliki tampilan yang menarik, tetapi
+                            juga mampu menyelesaikan permasalahan nyata melalui arsitektur yang baik, performa yang
+                            optimal, dan pengalaman pengguna yang nyaman.
+                        </p>
+
+                        <div class="personal-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Lokasi:</span>
+                                <span class="detail-value">Medan, Indonesia</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Email:</span>
+                                <span class="detail-value">brainwonderson@gmail.com</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Pekerjaan:</span>
+                                <span class="detail-value">Fresh Graduate</span>
+                            </div>
+                        </div>
+
+                        <div class="social-links-wrapper">
+                            <span class="social-title">Ikuti Saya:</span>
+                            <div class="social-links">
+                                <a href="https://github.com/brainwonderson" target="_blank" rel="noopener noreferrer"
+                                    class="social-icon" aria-label="GitHub">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path
+                                            d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                                        <path d="M9 18c-4.51 2-5-2-7-2" />
+                                    </svg>
+                                </a>
+                                <a href="https://www.linkedin.com/in/brain-wonderson-224a941b2/" target="_blank"
+                                    rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path
+                                            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                        <rect width="4" height="12" x="2" y="9" />
+                                        <circle cx="4" cy="4" r="2" />
+                                    </svg>
+                                </a>
+                                <a href="https://www.instagram.com/wondersonnnnn/" target="_blank"
+                                    rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                                    </svg>
+                                </a>
+                                <a href="https://x.com/brain_wonderson" target="_blank" rel="noopener noreferrer"
+                                    class="social-icon" aria-label="X (Twitter)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="currentColor">
+                                        <path
+                                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-skills reveal">
+                        <h3 class="about-subtitle">Keahlian Saya</h3>
+                        <div class="skills-grid">
+                            <!-- Skill 1 -->
+                            <div class="skill-card">
+                                <div class="skill-icon-box skill-frontend">
+                                    <i data-lucide="monitor"></i>
+                                </div>
+                                <h4 class="skill-name">Frontend Dev</h4>
+                                <p class="skill-desc">HTML, CSS, JavaScript, React, Vue, Tailwind CSS</p>
+                            </div>
+                            <!-- Skill 2 -->
+                            <div class="skill-card">
+                                <div class="skill-icon-box skill-backend">
+                                    <i data-lucide="server"></i>
+                                </div>
+                                <h4 class="skill-name">Backend Dev</h4>
+                                <p class="skill-desc">Node.js, Express, Python, PHP, Laravel, SQL/NoSQL</p>
+                            </div>
+                            <!-- Skill 3 -->
+                            <div class="skill-card">
+                                <div class="skill-icon-box skill-design">
+                                    <i data-lucide="figma"></i>
+                                </div>
+                                <h4 class="skill-name">Artificial Intelligence</h4>
+                                <p class="skill-desc">Gemini API, RAG, FAISS, Recommendation System, Text-to-SQL, Prompt
+                                    Engineering</p>
+                            </div>
+                            <!-- Skill 4 -->
+                            <div class="skill-card">
+                                <div class="skill-icon-box skill-other">
+                                    <i data-lucide="cpu"></i>
+                                </div>
+                                <h4 class="skill-name">Tools & Database</h4>
+                                <p class="skill-desc">Git, GitHub, VS Code, Docker, REST APIs, MySQL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section section-padding">
+            <div class="section-container">
+                <div class="section-header reveal">
+                    <span class="section-tag">Karya Saya</span>
+                    <h2 class="section-title">Proyek Unggulan</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <!-- Projects Filter Controls -->
+                <div class="projects-filter reveal">
+                    <button class="filter-btn active" data-filter="all">Semua</button>
+                    <button class="filter-btn" data-filter="web">Web App</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile</button>
+                    <button class="filter-btn" data-filter="design">UI/UX</button>
+                </div>
+
+                <!-- Dynamic Projects Container -->
+                <div class="projects-grid-container reveal" id="projectsGrid">
+                    <!-- Project Cards will be rendered dynamically by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section section-padding">
+            <div class="section-container">
+                <div class="section-header reveal">
+                    <span class="section-tag">Hubungi Saya</span>
+                    <h2 class="section-title">Ada Proyek Menarik?</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-card reveal">
+                        <h3 class="contact-subtitle">Mari Berdiskusi</h3>
+                        <p class="contact-text">
+                            Apakah Anda memiliki pertanyaan atau ingin berkolaborasi dalam sebuah proyek? Kirimkan pesan
+                            Anda melalui formulir atau kontak di bawah ini. Saya akan membalas secepat mungkin.
+                        </p>
+
+                        <div class="contact-methods">
+                            <div class="method-item">
+                                <div class="method-icon">
+                                    <i data-lucide="mail"></i>
+                                </div>
+                                <div class="method-info">
+                                    <span class="method-title">Email</span>
+                                    <a href="mailto:brainwonderson@gmail.com"
+                                        class="method-link">brainwonderson@gmail.com</a>
+                                </div>
+                            </div>
+
+                            <div class="method-item">
+                                <div class="method-icon">
+                                    <i data-lucide="map-pin"></i>
+                                </div>
+                                <div class="method-info">
+                                    <span class="method-title">Lokasi</span>
+                                    <span class="method-link">Medan, Indonesia</span>
+                                </div>
+                            </div>
+
+                            <!-- <div class="method-item">
+                                <div class="method-icon">
+                                    <i data-lucide="clock"></i>
+                                </div>
+                                <div class="method-info">
+                                    <span class="method-title">Jam Kerja</span>
+                                    <span class="method-link">Senin - Jumat, 09.00 - 17.00 WIB</span>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+
+                    <div class="contact-form-container reveal">
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group-row">
+                                <div class="form-group">
+                                    <label for="name">Nama Lengkap</label>
+                                    <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Alamat Email</label>
+                                    <input type="email" id="email" name="email" placeholder="Masukkan email Anda"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subjek</label>
+                                <input type="text" id="subject" name="subject" placeholder="Subjek pesan Anda" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Pesan Anda</label>
+                                <textarea id="message" name="message" rows="5"
+                                    placeholder="Tuliskan pesan atau detail proyek Anda di sini..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+                                <span>Kirim Pesan</span> <i data-lucide="send"></i>
+                            </button>
+                            <div id="formStatus" class="form-status"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <span class="logo-accent">&lt;</span>Brain Wonderson<span class="logo-accent">/&gt;</span>
+                </a>
+                <p class="footer-desc">
+                    Membangun masa depan digital yang lebih baik melalui desain kreatif dan teknologi modern.
+                </p>
+            </div>
+
+            <div class="footer-nav">
+                <h4 class="footer-title">Tautan Cepat</h4>
+                <a href="#home" class="footer-link">Beranda</a>
+                <a href="#about" class="footer-link">Tentang</a>
+                <a href="#projects" class="footer-link">Proyek</a>
+                <a href="#contact" class="footer-link">Kontak</a>
+            </div>
+
+            <div class="footer-social">
+                <h4 class="footer-title">Sosial Media</h4>
+                <div class="social-links">
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-icon"
+                        aria-label="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                            <path d="M9 18c-4.51 2-5-2-7-2" />
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon"
+                        aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                            <rect width="4" height="12" x="2" y="9" />
+                            <circle cx="4" cy="4" r="2" />
+                        </svg>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon"
+                        aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                        </svg>
+                    </a>
+                    <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-icon"
+                        aria-label="X (Twitter)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path
+                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Ahmad Fauzi. All Rights Reserved. Dibuat dengan dedikasi.</p>
+        </div>
+    </footer>
+
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>
