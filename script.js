@@ -4,6 +4,16 @@
 
 const PROJECTS_DATA = [
     {
+        id: 5,
+        title: "SmartFood AI 🍕 - AI-Powered Food Delivery & Recommendation Platform",
+        category: "web",
+        description: "Platform pemesanan dan pengantaran makanan modern yang mengintegrasikan AI (Google Gemini API) untuk chatbot kuliner interaktif, prediksi penjualan, rekomendasi stok bahan baku, dan menu viral bagi mitra restoran.",
+        image: "assets/smartfood_ai.png",
+        tech: ["React.js", "Laravel", "Tailwind CSS", "MySQL", "Gemini API"],
+        github: "https://github.com/brainwonderson/AI-Powered-Food-Delivery-Recommendation-Platform",
+        demo: "https://example.com"
+    },
+    {
         id: 1,
         title: "E-Commerce modern (ECOMART)",
         category: "web",
@@ -31,16 +41,6 @@ const PROJECTS_DATA = [
         image: "assets/proyekTXTtoSQL.png",
         tech: ["HTML5", "CSS Grid", "JavaScript", "WebSockets"],
         github: "https://github.com/brainwonderson/TEXT-SQL",
-        demo: "https://example.com"
-    },
-    {
-        id: 4,
-        title: "Redesain UI/UX Landing Page SaaS",
-        category: "design",
-        description: "Studi kasus perancangan antarmuka pengguna untuk aplikasi manajemen keuangan SaaS, berfokus pada kemudahan alur onboarding pengguna baru.",
-        image: "assets/project_design.png",
-        tech: ["Figma", "User Research", "Wireframing", "Prototyping"],
-        github: "https://github.com",
         demo: "https://example.com"
     }
 ];
@@ -79,12 +79,8 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Project Grid Elements
     const projectsGrid = document.getElementById("projectsGrid");
-    const filterButtons = document.querySelectorAll(".filter-btn");
     
-    // Contact Form Elements
-    const contactForm = document.getElementById("contactForm");
-    const formStatus = document.getElementById("formStatus");
-    const submitBtn = document.getElementById("submitBtn");
+
 
     /* ==========================================================================
        THEME CONTROLLER (DARK / LIGHT)
@@ -160,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
         navMenu.classList.toggle("active");
         
         // Toggle lucide menu icon
-        const icon = menuToggle.querySelector("i");
+        const icon = menuToggle.querySelector("i, svg");
         if (navMenu.classList.contains("active")) {
             icon.setAttribute("data-lucide", "x");
         } else {
@@ -173,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
     navLinks.forEach(link => {
         link.addEventListener("click", () => {
             navMenu.classList.remove("active");
-            const icon = menuToggle.querySelector("i");
+            const icon = menuToggle.querySelector("i, svg");
             icon.setAttribute("data-lucide", "menu");
             lucide.createIcons();
         });
@@ -253,7 +249,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             card.innerHTML = `
                 <div class="project-image-box">
-                    <span class="project-category-badge">${project.category}</span>
                     <img src="${project.image}" alt="${project.title}" class="project-img" onerror="this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop'">
                 </div>
                 <div class="project-content">
@@ -265,9 +260,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div class="project-links">
                         <a href="${project.github}" target="_blank" rel="noopener noreferrer" class="project-link">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github" style="margin-right: 4px; display: inline-block; vertical-align: text-bottom;"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /><path d="M9 18c-4.51 2-5-2-7-2" /></svg>Kode Sumber
-                        </a>
-                        <a href="${project.demo}" target="_blank" rel="noopener noreferrer" class="project-link">
-                            <i data-lucide="external-link"></i> Demo Live
                         </a>
                     </div>
                 </div>
@@ -288,96 +280,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initialize rendering
     renderProjects();
-
-    // Filter Buttons events
-    filterButtons.forEach(btn => {
-        btn.addEventListener("click", () => {
-            // Remove active from all
-            filterButtons.forEach(b => b.classList.remove("active"));
-            
-            // Add active to current
-            btn.classList.add("active");
-            
-            // Render with filter
-            const filterValue = btn.getAttribute("data-filter");
-            
-            // Add slight fadeout effect to grid before loading
-            projectsGrid.style.opacity = "0.5";
-            projectsGrid.style.transform = "scale(0.98)";
-            projectsGrid.style.transition = "all 0.25s ease";
-            
-            setTimeout(() => {
-                renderProjects(filterValue);
-                projectsGrid.style.opacity = "1";
-                projectsGrid.style.transform = "scale(1)";
-            }, 250);
-        });
-    });
-
-    /* ==========================================================================
-       CONTACT FORM SUBMISSION (VALIDATION & FEEDBACK)
-       ========================================================================== */
-
-    if (contactForm) {
-        contactForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-
-            // Pastikan SDK EmailJS telah dimuat
-            if (typeof emailjs === 'undefined') {
-                formStatus.textContent = "Gagal mengirim pesan: SDK EmailJS tidak termuat. Silakan periksa koneksi internet Anda.";
-                formStatus.className = "form-status error";
-                formStatus.style.opacity = "1";
-                return;
-            }
-
-            // Disable submit button
-            submitBtn.disabled = true;
-            submitBtn.classList.add("disabled");
-            const originalBtnHTML = submitBtn.innerHTML;
-            submitBtn.innerHTML = `<span>Mengirim...</span> <i data-lucide="loader" class="spin"></i>`;
-            lucide.createIcons();
-
-            // Ganti "YOUR_SERVICE_ID" dan "YOUR_TEMPLATE_ID" dengan ID dari dashboard EmailJS Anda
-            const serviceID = "service_9l6puht";
-            const templateID = "template_0kbf1zr";
-
-            emailjs.sendForm(serviceID, templateID, contactForm)
-                .then(() => {
-                    // Tampilkan status sukses
-                    formStatus.textContent = "Pesan Anda berhasil dikirim! Terima kasih telah menghubungi saya.";
-                    formStatus.className = "form-status success";
-                    formStatus.style.opacity = "1";
-                    
-                    // Reset isi Form
-                    contactForm.reset();
-                })
-                .catch((error) => {
-                    // Tampilkan status error
-                    formStatus.textContent = "Gagal mengirim pesan. Silakan coba lagi atau hubungi langsung via email.";
-                    formStatus.className = "form-status error";
-                    formStatus.style.opacity = "1";
-                    console.error("EmailJS Error:", error);
-                })
-                .finally(() => {
-                    // Kembalikan tombol submit ke kondisi semula
-                    submitBtn.disabled = false;
-                    submitBtn.classList.remove("disabled");
-                    submitBtn.innerHTML = originalBtnHTML;
-                    lucide.createIcons();
-
-                    // Hilangkan pesan status setelah 5 detik
-                    setTimeout(() => {
-                        formStatus.style.opacity = "0";
-                        formStatus.style.transition = "opacity 1s ease";
-                        setTimeout(() => {
-                            formStatus.textContent = "";
-                            formStatus.style.opacity = "1";
-                            formStatus.className = "form-status";
-                        }, 1000);
-                    }, 5000);
-                });
-        });
-    }
 
     /* ==========================================================================
        REVEAL-ON-SCROLL OBSERVATION
