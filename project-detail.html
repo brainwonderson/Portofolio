@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detail proyek, alur sistem, user story, demo, dan kode sumber.">
+    <title>Detail Proyek | Brain Wonderson</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="project-detail-body">
+    <header class="detail-navbar">
+        <a href="index.html#projects" class="detail-brand">Brain Wonderson</a>
+        <div class="detail-nav-actions">
+            <a href="index.html#projects" class="detail-back-link"><i data-lucide="arrow-left"></i> Semua Proyek</a>
+            <button id="detailThemeToggle" class="theme-btn" type="button" aria-label="Ganti tema">
+                <i data-lucide="sun" class="sun-icon"></i>
+                <i data-lucide="moon" class="moon-icon"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="project-detail-page">
+        <div id="projectNotFound" class="project-not-found" hidden>
+            <span class="section-tag">Proyek tidak ditemukan</span>
+            <h1>Halaman proyek belum tersedia.</h1>
+            <p>Pilih proyek dari halaman portofolio untuk melihat detailnya.</p>
+            <a href="index.html#projects" class="detail-button detail-button-primary"><i data-lucide="arrow-left"></i>Kembali ke proyek</a>
+        </div>
+
+        <article id="projectDetail" hidden>
+            <a href="index.html#projects" class="detail-breadcrumb"><i data-lucide="arrow-left"></i> Kembali ke semua proyek</a>
+
+            <section class="detail-hero">
+                <div class="detail-hero-copy">
+                    <span class="section-tag">Project showcase</span>
+                    <h1 id="detailTitle"></h1>
+                    <p id="detailDescription" class="detail-lead"></p>
+                    <div id="detailTech" class="project-tech-tags detail-tech"></div>
+                    <div class="detail-actions">
+                        <a id="detailSource" class="detail-button detail-button-primary" target="_blank" rel="noopener noreferrer">
+                            <i data-lucide="code-2"></i> Lihat kode sumber
+                        </a>
+                        <a href="#project-docs" class="detail-button detail-button-secondary">
+                            <i data-lucide="layers-3"></i> Lihat dokumentasi
+                        </a>
+                    </div>
+                </div>
+                <div class="detail-hero-image-wrap">
+                    <img id="detailImage" class="detail-hero-image" alt="">
+                    <button id="detailPrevImage" class="detail-image-control detail-image-prev" type="button" aria-label="Gambar sebelumnya" hidden>
+                        <i data-lucide="chevron-left"></i>
+                    </button>
+                    <button id="detailNextImage" class="detail-image-control detail-image-next" type="button" aria-label="Gambar selanjutnya" hidden>
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                    <div class="detail-image-caption">
+                        <i data-lucide="image"></i>
+                        <span>Preview proyek</span>
+                        <span id="detailImageCount" class="detail-image-count" hidden></span>
+                    </div>
+                    <div id="detailImageDots" class="detail-image-dots" aria-label="Pilih gambar preview" hidden></div>
+                </div>
+            </section>
+
+            <section class="detail-section" aria-labelledby="highlightsTitle">
+                <div class="detail-section-heading">
+                    <span class="section-tag">Ringkasan</span>
+                    <h2 id="highlightsTitle">Apa yang dibangun</h2>
+                </div>
+                <div id="detailHighlights" class="detail-highlights"></div>
+            </section>
+
+            <section id="project-docs" class="detail-section" aria-labelledby="docsTitle">
+                <div class="detail-section-heading">
+                    <span class="section-tag">Dokumentasi proyek</span>
+                    <h2 id="docsTitle">Dokumentasi Proyek</h2>
+                    <p>Pilih dokumen untuk melihat pratinjau PDF.</p>
+                </div>
+                <div class="detail-document-viewer">
+                    <div class="detail-document-tabs" role="tablist" aria-label="Jenis dokumentasi">
+                        <button class="detail-document-tab active" id="documentTabFsd" type="button" role="tab"
+                            aria-selected="true" aria-controls="documentPreview" data-document-type="fsd">
+                            <i data-lucide="file-text"></i> FSD
+                        </button>
+                        <button class="detail-document-tab" id="documentTabUml" type="button" role="tab"
+                            aria-selected="false" aria-controls="documentPreview" data-document-type="uml" tabindex="-1">
+                            <i data-lucide="workflow"></i> UML
+                        </button>
+                        <button class="detail-document-tab" id="documentTabTesting" type="button" role="tab"
+                            aria-selected="false" aria-controls="documentPreview" data-document-type="testingCase" tabindex="-1">
+                            <i data-lucide="list-checks"></i> Testing Case
+                        </button>
+                    </div>
+                    <div id="documentPreview" class="detail-document-panel" role="tabpanel"
+                        aria-labelledby="documentTabFsd" tabindex="0">
+                        <p id="documentStatus" class="detail-document-status" role="status" hidden></p>
+                        <iframe id="detailDocumentPdf" class="detail-document-pdf" title="Pratinjau dokumen proyek"
+                            hidden></iframe>
+                    </div>
+                    <div class="detail-document-actions">
+                        <a id="detailDocumentOpen" class="detail-button detail-button-secondary" target="_blank"
+                            rel="noopener noreferrer" hidden>
+                            Buka PDF di tab baru <i data-lucide="arrow-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="detail-section detail-showcase" aria-labelledby="showcaseTitle">
+                <div class="detail-section-heading">
+                    <span class="section-tag">Coba & pelajari</span>
+                    <h2 id="showcaseTitle">Demo dan kode</h2>
+                    <p>Lihat implementasi proyek atau coba demo jika sudah tersedia.</p>
+                </div>
+                <div class="detail-resource-grid">
+                    <div class="detail-resource-card">
+                        <span class="detail-icon"><i data-lucide="play"></i></span>
+                        <div>
+                            <h3>Demo aplikasi</h3>
+                            <p id="detailDemoStatus"></p>
+                        </div>
+                        <a id="detailDemo" class="detail-button detail-button-secondary" target="_blank" rel="noopener noreferrer" hidden>
+                            Buka demo <i data-lucide="arrow-up-right"></i>
+                        </a>
+                    </div>
+                    <div class="detail-resource-card">
+                        <span class="detail-icon"><i data-lucide="code-2"></i></span>
+                        <div>
+                            <h3>Repository kode</h3>
+                            <p>Kode sumber dan berkas proyek tersedia di GitHub.</p>
+                        </div>
+                        <a id="detailSourceBottom" class="detail-button detail-button-secondary" target="_blank" rel="noopener noreferrer">
+                            Buka GitHub <i data-lucide="arrow-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer class="detail-footer">
+        <p>&copy; 2026 Brain Wonderson. Dibuat dengan dedikasi.</p>
+    </footer>
+    <script src="projects-data.js"></script>
+    <script src="project-detail.js"></script>
+</body>
+
+</html>

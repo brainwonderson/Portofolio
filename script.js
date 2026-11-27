@@ -1,51 +1,4 @@
 /* ==========================================================================
-   DYNAMIC PROJECT DATA
-   ========================================================================== */
-
-const PROJECTS_DATA = [
-    {
-        id: 5,
-        title: "SmartFood AI 🍕 - AI-Powered Food Delivery & Recommendation Platform",
-        category: "web",
-        description: "Platform pemesanan dan pengantaran makanan modern yang mengintegrasikan AI (Google Gemini API) untuk chatbot kuliner interaktif, prediksi penjualan, rekomendasi stok bahan baku, dan menu viral bagi mitra restoran.",
-        image: "assets/smartfood_ai.png",
-        tech: ["React.js", "Laravel", "Tailwind CSS", "MySQL", "Gemini API"],
-        github: "https://github.com/brainwonderson/AI-Powered-Food-Delivery-Recommendation-Platform",
-        demo: "https://example.com"
-    },
-    {
-        id: 1,
-        title: "E-Commerce modern (ECOMART)",
-        category: "web",
-        description: "Platform e-commerce modern berbasis web dan mobile dengan arsitektur multi-role (Buyer, Seller, Admin), integrasi payment gateway, manajemen inventaris dinamis, serta dashboard analitik real-time",
-        image: "assets/ecomart_proyek.png",
-        tech: ["React.js", "Next.js", "Express", "MYSQL"],
-        github: "https://github.com/brainwonderson/realtimeecomart",
-        demo: "https://example.com"
-    },
-    {
-        id: 2,
-        title: "AeroRAG 🚀 - AI PDF Assistant & Vector Search Inspector",
-        category: "web",
-        description: "AeroRAG adalah aplikasi RAG (Retrieval-Augmented Generation) modern berbasis web yang memungkinkan Anda untuk mengunggah satu atau banyak dokumen PDF sekaligus, mengindeksnya ke dalam basis data vektor lokal, serta melakukan tanya jawab interaktif dengan visualisasi pencarian vektor secara langsung.",
-        image: "assets/ProyekRag.png",
-        tech: ["Pyhton", "JavaScript", "HTML5", "CSS3", "FAISS", "API GEMINI"],
-        github: "https://github.com/brainwonderson/AeroRAG-AI-PDF-Assistant-Vector-Search-Inspector",
-        demo: "https://example.com"
-    },
-    {
-        id: 3,
-        title: "Text-to-SQL Translator & AI Data Analyst",
-        category: "web",
-        description: "Aplikasi berbasis web yang menggunakan kecerdasan buatan (Generative AI) dari Google Gemini untuk menerjemahkan pertanyaan bahasa alami (Bahasa Indonesia) menjadi query MySQL secara otomatis, mengeksekusinya ke database lokal, dan menyajikan hasilnya beserta penjelasan analisis data yang komunikatif.",
-        image: "assets/proyekTXTtoSQL.png",
-        tech: ["HTML5", "CSS Grid", "JavaScript", "WebSockets"],
-        github: "https://github.com/brainwonderson/TEXT-SQL",
-        demo: "https://example.com"
-    }
-];
-
-/* ==========================================================================
    DOM ELEMENTS & APP STATE
    ========================================================================== */
 
@@ -238,7 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         filtered.forEach(project => {
             // Create card HTML element
-            const card = document.createElement("div");
+            const card = document.createElement("article");
             card.className = "project-card";
             card.style.opacity = "0";
             card.style.transform = "translateY(15px)";
@@ -248,16 +201,21 @@ document.addEventListener("DOMContentLoaded", () => {
             const techHTML = project.tech.map(tag => `<span class="tech-tag">${tag}</span>`).join("");
 
             card.innerHTML = `
+                <a class="project-detail-link" href="project-detail.html?id=${project.id}" aria-label="Lihat detail ${project.title}">
                 <div class="project-image-box">
                     <img src="${project.image}" alt="${project.title}" class="project-img" onerror="this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop'">
                 </div>
+                </a>
                 <div class="project-content">
-                    <h3 class="project-title">${project.title}</h3>
+                    <h3 class="project-title"><a href="project-detail.html?id=${project.id}">${project.title}</a></h3>
                     <p class="project-description">${project.description}</p>
                     <div class="project-tech-tags">
                         ${techHTML}
                     </div>
                     <div class="project-links">
+                        <a href="project-detail.html?id=${project.id}" class="project-link">
+                            <i data-lucide="arrow-up-right"></i>Detail Proyek
+                        </a>
                         <a href="${project.github}" target="_blank" rel="noopener noreferrer" class="project-link">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github" style="margin-right: 4px; display: inline-block; vertical-align: text-bottom;"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /><path d="M9 18c-4.51 2-5-2-7-2" /></svg>Kode Sumber
                         </a>
