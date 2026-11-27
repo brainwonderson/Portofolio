@@ -23,8 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
     document.title = `${project.title} | Brain Wonderson`;
     document.getElementById("detailTitle").textContent = project.title;
     document.getElementById("detailDescription").textContent = project.description;
-    document.getElementById("detailSource").href = project.github;
-    document.getElementById("detailSourceBottom").href = project.github;
+    if (project.github) {
+        document.getElementById("detailSource").href = project.github;
+        document.getElementById("detailSourceBottom").href = project.github;
+    } else {
+        document.getElementById("detailSource").hidden = true;
+        document.getElementById("detailSourceBottom").closest(".detail-resource-card").hidden = true;
+    }
 
     const galleryImages = project.images && project.images.length ? project.images : [project.image];
     const gallery = document.querySelector(".detail-hero-image-wrap");
@@ -205,7 +210,9 @@ document.addEventListener("DOMContentLoaded", () => {
         demoLink.hidden = false;
         demoStatus.textContent = "Demo proyek dapat dibuka melalui tautan berikut.";
     } else {
-        demoStatus.textContent = "Demo online belum tersedia. Silakan lihat screenshot dan kode sumber proyek.";
+        demoStatus.textContent = project.github
+            ? "Demo online belum tersedia. Silakan lihat screenshot dan kode sumber proyek."
+            : "Demo online dan tautan kode sumber belum tersedia. Lihat ringkasan fitur proyek di atas.";
     }
 
     lucide.createIcons();

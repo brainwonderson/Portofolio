@@ -1,5 +1,28 @@
 const PROJECTS_DATA = [
     {
+        id: 6,
+        title: "SILAMPAS - Sistem Informasi Ticketing Layanan Masyarakat Loka POM Toba",
+        category: "web",
+        description: "SILAMPAS adalah platform digital untuk meningkatkan efisiensi pencatatan dan pengelolaan layanan masyarakat di Loka POM Toba. Sistem ini mendukung pencatatan layanan secara sistematis, pengelolaan pertemuan online dengan pembuatan tautan Zoom dan pengiriman otomatis melalui WhatsApp, serta survei kepuasan untuk membantu meningkatkan kualitas layanan. Dengan Laravel, SQL Server, dan integrasi API Zoom serta WhatsApp, SILAMPAS membantu mempercepat respons terhadap pengaduan dan permintaan masyarakat secara akurat dan transparan.",
+        image: "assets/silampas.png",
+        images: ["assets/silampas.png"],
+        tech: ["Laravel", "SQL Server", "Zoom API", "WhatsApp API"],
+        github: "https://github.com/proyek-mahasiswa/psi-2425ge-02-silampas",
+        demo: "https://youtu.be/KpP4CvtkwjI",
+        documents: {
+            fsd: "document/PIP_Silampas.pdf",
+            uml: "document/SyRS_Silampas.pdf",
+            testingCase: "document/STD_Silampas.pdf"
+        },
+        flow: ["Masyarakat mengajukan layanan", "Petugas mencatat dan mengelola ticketing", "Pertemuan online melalui Zoom", "Tautan dikirim otomatis via WhatsApp", "Survei kepuasan layanan"],
+        userStories: [
+            "Sebagai petugas, saya ingin mencatat dan mengelola permintaan layanan secara sistematis agar setiap pengaduan dapat ditindaklanjuti.",
+            "Sebagai petugas, saya ingin membuat tautan pertemuan Zoom dan mengirimkannya melalui WhatsApp agar koordinasi dengan masyarakat lebih mudah.",
+            "Sebagai masyarakat, saya ingin mengisi survei kepuasan agar kualitas layanan dapat terus ditingkatkan."
+        ],
+        highlights: ["Pencatatan dan pengelolaan ticketing layanan masyarakat", "Generate tautan Zoom dan pengiriman otomatis melalui WhatsApp", "Survei kepuasan untuk mendukung peningkatan kualitas layanan"]
+    },
+    {
         id: 5,
         title: "SmartFood AI 🍕 - AI-Powered Food Delivery & Recommendation Platform",
         category: "web",
@@ -72,7 +95,7 @@ const PROJECTS_DATA = [
         id: 4,
         title: "Lapor Kita - Aplikasi Layanan Pengaduan Masyarakat Berbasis Web",
         category: "web",
-        description: "LaporKita is a web-based public complaint platform designed to make it easier for citizens to report issues related to the environment and public facilities—such as damaged roads, accumulated trash, flooding, or broken streetlights. The system connects the public, platform administrators, agency administrators, and field personnel within a unified report-management workflow, covering everything from submission, verification, and task assignment to progress monitoring and final resolution, all in a transparent manner.",
+        description: "LaporKita adalah platform pengaduan publik berbasis web yang dirancang untuk memudahkan warga dalam melaporkan berbagai masalah terkait lingkungan dan fasilitas umum—seperti jalan rusak, penumpukan sampah, banjir, atau lampu jalan yang mati. Sistem ini menghubungkan masyarakat, administrator platform, administrator instansi, dan petugas lapangan ke dalam alur kerja pengelolaan pengaduan yang terpadu. Proses ini mencakup berbagai tahapan, mulai dari pengajuan, verifikasi, dan penugasan, hingga pemantauan perkembangan serta penyelesaian akhir, yang semuanya dilakukan secara transparan.",
         image: "assets/laporkita.png",
         images: ["assets/laporkita.png", "assets/laporkitaa.png"],
         tech: ["HTML5", "Next.JS", "React.Js"],
